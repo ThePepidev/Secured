@@ -1,4 +1,3 @@
-secured
-libmy.a
-*.o
 main.c
+*.a
+*.o

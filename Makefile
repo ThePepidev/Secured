@@ -10,24 +10,24 @@ SRC = 		src/insert.c			\
 
 OBJ = $(SRC:.c=.o)
 
-NAME = secured
+NAME = libhastable.a
 
 LIB = -L./lib -lmy
 
 INCLUDE = -Iinclude -Ilib/my
 
-CFLAGS += -Wall -Wextra $(INCLUDE) -g
+CFLAGS += -Wall -Wextra $(INCLUDE)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C lib/my
-	gcc -o $(NAME) $(OBJ) $(LIB) $(CFLAGS)
+	ar rc $(NAME) $(OBJ) $(LIB) $(CFLAGS)
 
 debug:	CFLAGS += -g
 debug:	$(OBJ)
 	make -C lib/my
-	gcc -o $(NAME) $(OBJ) $(CFLAGS) $(LIB)
+	ar rc $(NAME) $(OBJ) $(CFLAGS) $(LIB)
 
 clean:
 	rm -f $(OBJ)
