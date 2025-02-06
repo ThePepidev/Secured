@@ -5,12 +5,11 @@
 ## Main Makefile for my_radar
 ##
 
-SRC = 		src/secured.c 			\
-			main.c
+SRC = 		src/secured.c
 
 OBJ = $(SRC:.c=.o)
 
-NAME = secured
+NAME = libhastable.a
 
 LIB = -L./lib -lmy
 
@@ -22,12 +21,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C lib/my
-	gcc -o $(NAME) $(OBJ) $(LIB) $(CFLAGS)
+	ar rc $(NAME) $(OBJ) $(LIB) $(CFLAGS)
 
 debug:	CFLAGS += -g
 debug:	$(OBJ)
 	make -C lib/my
-	gcc -o $(NAME) $(OBJ) $(CFLAGS) $(LIB)
+	ar rc $(NAME) $(OBJ) $(CFLAGS) $(LIB)
 
 clean:
 	rm -f $(OBJ)
