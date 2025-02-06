@@ -31,4 +31,5 @@ char *ht_search(hashtable_t *ht, char *key);
 void ht_dump(hashtable_t *ht);
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len);
 int ht_delete(hashtable_t *ht, char *key);
+void delete_hashtable(hashtable_t *ht);
 #endif
