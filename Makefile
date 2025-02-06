@@ -5,19 +5,15 @@
 ## Main Makefile for my_radar
 ##
 
-SRC = 		src/insert.c			\
-			src/hash.c				\
-			src/search.c            \
-			src/dump.c				\
-			src/new_hashtable.c     \
-			src/delete.c			\
-			src/delete_hashtable.c
+MAIN = main.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(MAIN:.c=.o)
 
 NAME = libhashtable.a
 
-LIB = -L./lib -lmy
+LIBMY = libmy.a
+
+HASHTABLE = hashtable.a
 
 INCLUDE = -Iinclude -Ilib/my
 
@@ -25,21 +21,25 @@ CFLAGS += -Wall -Wextra $(INCLUDE)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME):
 	make -C lib/my
-	ar rcT $(NAME) $(OBJ) lib/libmy.a
+	make -C src/
+	ar rcT $(NAME) $(LIBMY) $(HASHTABLE)
 
 debug:	CFLAGS += -g
 debug:	$(OBJ)
 	make -C lib/my
+	make -C src/
 	$(NAME)
 
 clean:
 	rm -f $(OBJ)
 	make -C lib/my clean
+	make -C src/ clean
 
 fclean: clean
 	rm -f $(NAME)
 	make -C lib/my fclean
+	make -C src/ fclean
 
 re: fclean all

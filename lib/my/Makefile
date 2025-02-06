@@ -49,14 +49,13 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	ar rc $(NAME) $(OBJ)
-	mv libmy.a ../.
+	mv libmy.a ../../.
 	cp my.h ../../include/.
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f ../libmy.a
+	rm -f ../../libmy.a
 
 re:	fclean all
