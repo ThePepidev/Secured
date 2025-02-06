@@ -5,8 +5,8 @@
 ** secured.h
 */
 
-#ifndef SECURED
-    #define SECURED
+#ifndef HASHTABLE_H
+    #define HASHTABLE_H
 
     #include "my.h"
     #include <unistd.h>
@@ -32,4 +32,5 @@ void ht_dump(hashtable_t *ht);
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len);
 int ht_delete(hashtable_t *ht, char *key);
 void delete_hashtable(hashtable_t *ht);
-#endif
+
+#endif /* HASHTABLE_H */

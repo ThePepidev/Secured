@@ -5,8 +5,8 @@
 ** hash.c
 */
 
-#include "../include/secured.h"
-#include <string.h>
+#include "hashtable.h"
+
 int hash(char *key, int len)
 {
     unsigned long hash = 5381;

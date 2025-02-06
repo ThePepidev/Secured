@@ -5,7 +5,7 @@
 ** insert.c
 */
 
-#include "secured.h"
+#include "hashtable.h"
 
 void insert_new_node(node_t **new_node, char *key, char *value
     , int value_hash)

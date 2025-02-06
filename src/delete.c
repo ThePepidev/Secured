@@ -5,7 +5,7 @@
 ** delete.c
 */
 
-#include "secured.h"
+#include "hashtable.h"
 
 void check_previous(node_t **previous, node_t **current)
 {

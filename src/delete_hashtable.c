@@ -5,7 +5,7 @@
 ** delete_hashtable.c
 */
 
-#include "secured.h"
+#include "hashtable.h"
 
 static void free_node(node_t *current)
 {
