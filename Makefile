@@ -6,7 +6,7 @@
 ##
 
 SRC = 		src/insert.c			\
-			src/hash.c				\
+			src/hash.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJ)
 debug:	CFLAGS += -g
 debug:	$(OBJ)
 	make -C lib/my
-	$(NAME)
+	ar rcs $(NAME) $(OBJ) $(CFLAGS) $(LIB)
 
 clean:
 	rm -f $(OBJ)
