@@ -7,17 +7,33 @@
 
 #include "secured.h"
 
+void insert_new_node(node_t **new_node, char *key, char *value
+    , int value_hash)
+{
+    (*new_node)->key = my_strdup(key);
+    (*new_node)->value = my_strdup(value);
+    (*new_node)->hash = value_hash;
+    (*new_node)->next = NULL;
+}
+
 int ht_insert(hashtable_t *ht, char *key, char *value)
 {
-    int nb_ht = ht->hash % ht->len_hashtable;
+    int value_hash = ht->hash(key, ht->len_hashtable);
+    int index = value_hash % ht->len_hashtable;
+    node_t *current = ht->tab[index];
+    node_t *new_node = malloc(sizeof(node_t));
 
-    while (ht != NULL){
-        if (ht->id == nb_ht){
-            ht->hash = (long)key;
-            ht->name = value;
+    if (!new_node)
+        return 84;
+    while (current != NULL){
+        if (current->hash == value_hash){
+            current->value = my_strdup(value);
             return 0;
         }
-        ht = ht->next;
+        current = current->next;
     }
-    return 84;
+    insert_new_node(&new_node, key, value, value_hash);
+    new_node->next = ht->tab[index];
+    ht->tab[index] = new_node;
+    return 0;
 }
