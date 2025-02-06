@@ -5,13 +5,14 @@
 ## Main Makefile for my_radar
 ##
 
-SRC = 		src/secured.c
+SRC = 		src/secured.c 			\
+			main.c
 
 OBJ = $(SRC:.c=.o)
 
 NAME = secured
 
-LIB = -L./lib/my -lmy
+LIB = -L./lib -lmy
 
 INCLUDE = -Iinclude -Ilib/my
 
