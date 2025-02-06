@@ -11,6 +11,7 @@ SRC = 		src/insert.c			\
 			src/dump.c				\
 			src/new_hashtable.c     \
 			src/delete.c			\
+			src/delete_hashtable.c  \
 
 OBJ = $(SRC:.c=.o)
 
