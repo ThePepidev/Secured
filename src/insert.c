@@ -26,8 +26,9 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     if (!new_node)
         return 84;
     while (current != NULL){
-        if (current->hash == value_hash){
+        if (current->hash == value_hash && my_strcmp(key, current->key) == 0){
             current->value = my_strdup(value);
+            free(new_node);
             return 0;
         }
         current = current->next;
