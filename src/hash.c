@@ -11,6 +11,8 @@ int hash(char *key, int len)
 {
     unsigned long hash = 5381;
 
+    if (!key || len == 0)
+        return -1;
     for (int i = 0; key[i]; i++)
         hash = ((hash << 5) + hash) + key[i];
     hash = (hash * len) + len;
