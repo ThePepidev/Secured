@@ -1,0 +1,26 @@
+/*
+** EPITECH PROJECT, 2024
+** B-CPE-110-LIL-1-1-secured-mathys1.dupont
+** File description:
+** dump.c
+*/
+
+#include "secured.h"
+
+void ht_dump(hashtable_t *ht)
+{
+    int i = 0;
+    node_t *current;
+
+    if (!ht)
+        return;
+    while (ht->len_hashtable > i){
+        current = ht->tab[i];
+        printf("[%d]:\n", i);
+        while (current != NULL){
+            printf("> %d - %s\n", current->hash, current->value);
+            current = current->next;
+        }
+        i++;
+    }
+}
