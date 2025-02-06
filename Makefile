@@ -15,7 +15,7 @@ SRC = 		src/insert.c			\
 
 OBJ = $(SRC:.c=.o)
 
-NAME = libhastable.a
+NAME = libhashtable.a
 
 LIB = -L./lib -lmy
 
