@@ -7,6 +7,7 @@
 
 SRC = 		src/insert.c			\
 			src/hash.c				\
+			src/search.c            \
 
 OBJ = $(SRC:.c=.o)
 
