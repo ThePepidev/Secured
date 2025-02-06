@@ -9,10 +9,15 @@
 
 void check_previous(node_t **previous, node_t **current)
 {
+    node_t *temp = *current;
+
     if (*previous == NULL)
         *current = (*current)->next;
     else
         (*previous)->next = (*current)->next;
+    free(temp->key);
+    free(temp->value);
+    free(temp);
 }
 
 int ht_delete(hashtable_t *ht, char *key)
@@ -27,9 +32,6 @@ int ht_delete(hashtable_t *ht, char *key)
     while (current != NULL){
         if (value_hash == current->hash && my_strcmp(key, current->key) == 0){
             check_previous(&previous, &current);
-            free(current->key);
-            free(current->value);
-            free(current);
             return 0;
         }
         previous = current;
