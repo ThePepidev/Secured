@@ -1,3 +1,4 @@
 secured
 libmy.a
 *.o
+main.c
