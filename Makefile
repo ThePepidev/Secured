@@ -11,7 +11,7 @@ SRC = 		src/insert.c			\
 			src/dump.c				\
 			src/new_hashtable.c     \
 			src/delete.c			\
-			src/delete_hashtable.c  \
+			src/delete_hashtable.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -27,7 +27,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C lib/my
-	ar rc $(NAME) $(OBJ)
+	ar rcT $(NAME) $(OBJ) lib/libmy.a
 
 debug:	CFLAGS += -g
 debug:	$(OBJ)
