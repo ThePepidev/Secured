@@ -52,5 +52,6 @@ int my_compute_power_it(int nb, int p);
 char *my_strdup(char const *src);
 double my_getfloat(char const *str);
 char **my_str_to_word_array(char *str, char *separator);
+int mini_printf(const char *format, ...);
 
 #endif /* my_h */
