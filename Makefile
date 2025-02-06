@@ -22,7 +22,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C lib/my
-	ar rcs $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 debug:	CFLAGS += -g
 debug:	$(OBJ)
