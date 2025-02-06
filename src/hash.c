@@ -21,7 +21,7 @@ static int len_nbr(unsigned long number)
 int hash(char *key, int len)
 {
     unsigned long temp = 4523;
-    unsigned long hash = 4523;
+    long hash = 4523;
 
     for (int i = 0; key[i]; i++)
         hash = ((hash << 5) + hash) + key[i];
