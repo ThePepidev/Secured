@@ -27,4 +27,5 @@ typedef struct hashtable_s {
 int ht_insert(hashtable_t *ht, char *key, char *value);
 int hash(char *key, int len);
 char *ht_search(hashtable_t *ht, char *key);
+void ht_dump(hashtable_t *ht);
 #endif
