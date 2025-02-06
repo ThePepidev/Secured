@@ -5,7 +5,7 @@
 ## Main Makefile for my_radar
 ##
 
-SRC = 		src/secured.c 			\
+SRC = 		src/insert.c			\
 			main.c
 
 OBJ = $(SRC:.c=.o)
@@ -16,7 +16,7 @@ LIB = -L./lib -lmy
 
 INCLUDE = -Iinclude -Ilib/my
 
-CFLAGS += -Wall -Wextra $(INCLUDE)
+CFLAGS += -Wall -Wextra $(INCLUDE) -g
 
 all: $(NAME)
 
