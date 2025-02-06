@@ -14,7 +14,7 @@ int hash(char *key, int len)
     if (!key || len == 0 || !len)
         return -1;
     for (int i = 0; key[i]; i++)
-        hash = ((hash << 5) + hash) + key[i];
+        hash = ((hash << 5) + hash) + key[i] * hash;
     hash = (hash * len) + len;
     hash = hash % __INT32_MAX__;
     return (int)hash;
