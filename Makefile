@@ -21,11 +21,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C lib/my
-	gcc -o $(NAME) $(OBJ) $(LIB) $(COMPILSFML) $(CFLAGS)
-
-debug: $(OBJ)
-	make -C lib/my
 	gcc -o $(NAME) $(OBJ) $(LIB) $(CFLAGS)
+
+debug:	CFLAGS += -g
+debug:	$(OBJ)
+	make -C lib/my
+	gcc -o $(NAME) $(OBJ) $(CFLAGS) $(LIB)
 
 clean:
 	rm -f $(OBJ)
