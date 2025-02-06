@@ -11,7 +11,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {
     hashtable_t *new_hash = malloc(sizeof(hashtable_t));
 
-    if (!len || !hash || !new_hash)
+    if (!len || len == 0 || !hash || !new_hash)
         return NULL;
     new_hash->len_hashtable = len;
     new_hash->hash = hash;
@@ -20,8 +20,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
         free(new_hash->tab);
         return NULL;
     }
-    for (int i = 0; i < len; i++){
+    for (int i = 0; i < len; i++)
         new_hash->tab[i] = NULL;
-    }
     return new_hash;
 }

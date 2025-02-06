@@ -7,7 +7,7 @@
 
 #include "hashtable.h"
 
-void check_previous(node_t **tab_index, node_t **previous, node_t **current)
+int check_previous(node_t **tab_index, node_t **previous, node_t **current)
 {
     node_t *temp = *current;
 
@@ -18,22 +18,24 @@ void check_previous(node_t **tab_index, node_t **previous, node_t **current)
     free(temp->key);
     free(temp->value);
     free(temp);
+    return 0;
 }
 
 int ht_delete(hashtable_t *ht, char *key)
 {
-    int value_hash = ht->hash(key, ht->len_hashtable);
-    int index = value_hash % ht->len_hashtable;
-    node_t *current = ht->tab[index];
+    int value_hash = 0;
+    int index = 0;
+    node_t *current = NULL;
     node_t *previous = NULL;
 
     if (!ht || !key || !ht->tab)
         return 84;
+    value_hash = ht->hash(key, ht->len_hashtable);
+    index = value_hash % ht->len_hashtable;
+    current = ht->tab[index];
     while (current != NULL){
-        if (value_hash == current->hash && my_strcmp(key, current->key) == 0){
-            check_previous(&(ht->tab[index]), &previous, &current);
-            return 0;
-        }
+        if (value_hash == current->hash && my_strcmp(key, current->key) == 0)
+            return check_previous(&(ht->tab[index]), &previous, &current);
         previous = current;
         current = current->next;
     }

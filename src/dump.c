@@ -10,9 +10,9 @@
 void ht_dump(hashtable_t *ht)
 {
     int i = 0;
-    node_t *current;
+    node_t *current = NULL;
 
-    if (!ht)
+    if (!ht || !ht->tab)
         return;
     while (ht->len_hashtable > i){
         current = ht->tab[i];

@@ -9,7 +9,7 @@
 
 static void free_node(node_t *current)
 {
-    node_t *temp;
+    node_t *temp = NULL;
 
     while (current != NULL) {
         temp = current->next;
