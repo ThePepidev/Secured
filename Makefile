@@ -10,6 +10,7 @@ SRC = 		src/insert.c			\
 			src/search.c            \
 			src/dump.c				\
 			src/new_hashtable.c     \
+			src/delete.c			\
 
 OBJ = $(SRC:.c=.o)
 
