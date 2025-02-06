@@ -13,6 +13,8 @@ char *ht_search(hashtable_t *ht, char *key)
     int index = value_hash % ht->len_hashtable;
     node_t *current = ht->tab[index];
 
+    if (!ht || !key)
+        return NULL;
     while (current != NULL){
         if (value_hash == current->hash && my_strcmp(key, current->key) == 0){
             return current->value;

@@ -11,7 +11,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {
     hashtable_t *new_hash = malloc(sizeof(hashtable_t));
 
-    if (!new_hash)
+    if (!new_hash || len || !hash)
         return NULL;
     new_hash->len_hashtable = len;
     new_hash->hash = hash;

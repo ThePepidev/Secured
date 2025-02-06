@@ -25,7 +25,7 @@ int hash(char *key, int len)
     unsigned long temp = 4523;
     long hash = 4523;
 
-    if (!key)
+    if (!key || !len)
         return 84;
     for (int i = 0; key[i]; i++)
         hash = ((hash << 5) + hash) + key[i];

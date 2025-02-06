@@ -23,7 +23,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     node_t *current = ht->tab[index];
     node_t *new_node = malloc(sizeof(node_t));
 
-    if (!new_node)
+    if (!new_node || !ht || !key || !value)
         return 84;
     while (current != NULL){
         if (current->hash == value_hash && my_strcmp(key, current->key) == 0){
