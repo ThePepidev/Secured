@@ -10,6 +10,7 @@
 
     #include "my.h"
     #include <unistd.h>
+    #include <stdio.h>
 
 typedef struct node_s {
     char *key;

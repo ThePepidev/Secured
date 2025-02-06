@@ -20,6 +20,19 @@ static int len_nbr(unsigned long number)
     return len;
 }
 
+static int len_nb_pointer(unsigned long *number)
+{
+    int len = 0;
+
+    if (*number == 0)
+        return 1;
+    while (*number >= 1) {
+        (*number) /= 10;
+        len++;
+    }
+    return len;
+}
+
 static void copy_nbr(char *str, float nb_copy, int len_nb)
 {
     int temp;
@@ -37,7 +50,7 @@ static char *cast_to_str(unsigned long nb)
 {
     unsigned long nb_copy = (unsigned long)nb;
     char *str;
-    int len_nb = len_nbr(&nb_copy);
+    int len_nb = len_nb_pointer(&nb_copy);
 
     if (nb == 0)
         return "00";
