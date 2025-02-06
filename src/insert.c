@@ -16,6 +16,15 @@ void insert_new_node(node_t **new_node, char *key, char *value
     (*new_node)->next = NULL;
 }
 
+int free_new_node(node_t *new_node)
+{
+    if (!new_node){
+        free(new_node);
+        return 84;
+    }
+    return 0;
+}
+
 int ht_insert(hashtable_t *ht, char *key, char *value)
 {
     int value_hash = ht->hash(key, ht->len_hashtable);
@@ -23,7 +32,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     node_t *current = ht->tab[index];
     node_t *new_node = malloc(sizeof(node_t));
 
-    if (!new_node || !ht || !key || !value)
+    if (!ht || !key || !value || free_new_node(new_node) == 84)
         return 84;
     while (current != NULL){
         if (current->hash == value_hash && my_strcmp(key, current->key) == 0){
