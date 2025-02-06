@@ -19,12 +19,11 @@
     } node_t;
 
     typedef struct hashtable_s {
-        long hash;
-        char *name;
-        int id;
+        node_t **tab;
+        int (*hash)(char *, int);
         int len_hashtable;
-        struct hashtable_s *next;
     } hashtable_t;
 
 int ht_insert(hashtable_t *ht, char *key, char *value);
+int hash(char *key, int len);
 #endif
