@@ -22,12 +22,12 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C lib/my
-	ar rc $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 debug:	CFLAGS += -g
 debug:	$(OBJ)
 	make -C lib/my
-	ar rcs $(NAME) $(OBJ) $(CFLAGS) $(LIB)
+	$(NAME)
 
 clean:
 	rm -f $(OBJ)
