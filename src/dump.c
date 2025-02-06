@@ -16,9 +16,9 @@ void ht_dump(hashtable_t *ht)
         return;
     while (ht->len_hashtable > i){
         current = ht->tab[i];
-        printf("[%d]:\n", i);
+        mini_printf("[%d]:\n", i);
         while (current != NULL){
-            printf("> %d - %s\n", current->hash, current->value);
+            mini_printf("> %d - %s\n", current->hash, current->value);
             current = current->next;
         }
         i++;
